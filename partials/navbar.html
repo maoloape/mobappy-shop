@@ -1,23 +1,71 @@
-<nav class="bg-white border-b sticky top-0 z-50">
+<nav class=" top-0 left-0 right-0 z-50 bg-primary border-b shadow-md">
     <div class="container mx-auto px-4">
 
-        <div class="flex justify-between items-center h-16">
+        <div class="flex justify-between items-center h-16 py-12">
 
-            <div class="font-bold text-xl">
-                Mobappy
-            </div>
+            <a href="#" onclick="loadPage('home')">
+                <img
+                    src="assets/images/logo.jpg"
+                    alt="Mobappy"
+                    class="h-12 w-auto">
+            </a>
 
-            <div class="flex gap-6">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-6">
 
                 <button
                     onclick="loadPage('home')"
-                    class="hover:text-blue-500 transition">
+                    class="text-lg text-white hover:text-black/80 transition">
                     Home
                 </button>
 
                 <button
                     onclick="loadPage('product')"
-                    class="hover:text-blue-500 transition">
+                    class="text-lg text-white hover:text-black/80 transition">
+                    Product
+                </button>
+
+            </div>
+
+            <!-- Mobile Burger -->
+            <button
+                id="mobile-menu-button"
+                class="md:hidden p-2 rounded hover:bg-white/20"
+                aria-label="Toggle menu">
+
+                <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+            id="mobile-menu" class="absolute top-16 left-0 right-0 bg-primary/80 border-b shadow-lg md:hidden opacity-0 -translate-y-3 pointer-events-none transition-all duration-300 ease-out">
+
+            <div class="flex flex-col p-4 gap-2">
+
+                <button
+                    onclick="loadPage('home'); toggleMobileMenu(false)"
+                    class="text-left py-2 px-3 rounded hover:bg-white/10">
+                    Home
+                </button>
+
+                <button
+                    onclick="loadPage('product'); toggleMobileMenu(false)"
+                    class="text-left py-2 px-3 rounded hover:bg-white/10">
                     Product
                 </button>
 

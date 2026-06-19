@@ -23,6 +23,6 @@ async function loadPage(page) {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadComponent('navbar', './partials/navbar.html');
     await loadComponent('footer', './partials/footer.html');
-
+    
     loadPage('home');
 });
