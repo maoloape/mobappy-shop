@@ -12,7 +12,7 @@ tailwind.config = {
                 danger: '#EF4444',
             },
             backgroundImage: {
-                'product': "url('/assets/images/bg-product.jpg')",
+                'product': "url('../assets/images/bg-product.jpg')",
             }
         }
     }
