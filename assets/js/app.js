@@ -51,19 +51,45 @@ window.initHomeSlider = function() {
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
+        prevBtn.onclick = () => {
             let prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
             goToSlide(prevIndex);
             startAutoSlide(); 
-        });
+        };
     }
 
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
+        nextBtn.onclick = () => {
             let nextIndex = (currentSlide + 1) % totalSlides;
             goToSlide(nextIndex);
             startAutoSlide(); 
-        });
+        };
+    }
+
+    // 📱 DETEKSI SWIPE JARI DI MOBILE
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    parent.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(slideInterval); 
+    }, { passive: true });
+
+    parent.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoSlide();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            let nextIndex = (currentSlide + 1) % totalSlides;
+            goToSlide(nextIndex);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            let prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(prevIndex);
+        }
     }
 
     startAutoSlide();
