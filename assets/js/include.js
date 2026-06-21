@@ -1,7 +1,7 @@
 import { initNavbarScrollEffect, setupMobileNavActiveEffect } from './partials/nav.js';
 import { home } from './data/home.js';
 // import { about } from './data/about.js';
-import { products } from './data/product.js';
+import { products, categoryMap, merkMap, categories } from './data/product.js';
 
 async function loadComponent(id, file) {
     try {
@@ -20,65 +20,47 @@ async function loadComponent(id, file) {
     }
 }
 
-function renderData(data, target = 'app') {
+function renderData(data, target = 'app', templateId = 'card') {
+    const element = document.getElementById(target);
 
-    const element =
-        document.getElementById(target);
-
-    if (!element)
-        return;
+    if (!element) return;
 
     if (Array.isArray(data)) {
+        const template = element.querySelector(`#${templateId}`);
 
-        const template =
-            element.querySelector('#card');
+        if (!template) return;
 
-        if (!template)
-            return;
+        const html = template.innerHTML;
 
-        const html =
-            template.innerHTML;
+        element.innerHTML = data.map(item => {
+            let card = html;
 
-        element.innerHTML =
-            data.map(item => {
+            Object.entries(item).forEach(([key, value]) => {
 
-                let card =
-                    html;
+                if (key === 'categoryId') {
+                    card = card.replaceAll('$category', categoryMap[value] ?? '-');
+                    return;
+                }
 
-                Object.entries(item)
-                    .forEach(([key, value]) => {
+                if (key === 'merkId') {
+                    card = card.replaceAll('$merk', merkMap[value] ?? '-');
+                    return;
+                }
 
-                        card =
-                            card.replaceAll(
-                                `$${key}`,
-                                value
-                            );
-
-                    });
-
-                return card;
-
-            }).join('');
-
-    } else {
-
-        let html =
-            element.innerHTML;
-
-        Object.entries(data)
-            .forEach(([key, value]) => {
-
-                html =
-                    html.replaceAll(
-                        `$${key}`,
-                        value
-                    );
-
+                card = card.replaceAll(`$${key}`, value);
             });
 
-        element.innerHTML =
-            html;
+            return card;
+        }).join('');
 
+    } else {
+        let html = element.innerHTML;
+
+        Object.entries(data).forEach(([key, value]) => {
+            html = html.replaceAll(`$${key}`, value);
+        });
+
+        element.innerHTML = html;
     }
 }
 
@@ -103,7 +85,8 @@ async function loadPage(page) {
 
         if (page === 'home') {
             renderData(home, 'home');
-            renderData(products.slice(0, 4), 'products');
+            renderData(categories, 'categories', 'category-card');
+            renderData(products.slice(0, 6), 'products');
         }
 
         if (page === 'product') {
