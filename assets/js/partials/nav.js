@@ -1,55 +1,34 @@
-// Navbar Burger Button
-document.addEventListener('click', function (e) {
-    if (e.target.closest('#mobile-menu-button')) {
-        const menu = document.getElementById('mobile-menu');
+export function initNavbarScrollEffect() {
+    let lastScrollTop = 0;
+    const subNavbar = document.getElementById('sub-navbar');
+    
+    if (!subNavbar) return;
 
-        if (!menu) return;
-
-        const isOpen = menu.classList.contains('opacity-100');
-
-        if (isOpen) {
-            closeMenu(menu);
-        } else {
-            openMenu(menu);
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        if (window.innerWidth >= 768) {
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                subNavbar.classList.add('-translate-y-full');
+            } else {
+                subNavbar.classList.remove('-translate-y-full');
+            }
         }
-    }
-});
-
-function openMenu(menu) {
-    menu.classList.remove(
-        'opacity-0',
-        '-translate-y-3',
-        'pointer-events-none'
-    );
-
-    menu.classList.add(
-        'opacity-100',
-        'translate-y-0'
-    );
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+    });
 }
 
-function closeMenu(menu) {
-    menu.classList.remove(
-        'opacity-100',
-        'translate-y-0'
-    );
-
-    menu.classList.add(
-        'opacity-0',
-        '-translate-y-3',
-        'pointer-events-none'
-    );
+export function setupMobileNavActiveEffect() {
+    const mobileButtons = document.querySelectorAll('div.fixed.bottom-0 button');
+    
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            mobileButtons.forEach(b => {
+                b.classList.remove('text-primary');
+                b.classList.add('text-slate-500');
+            });
+            this.classList.remove('text-slate-500');
+            this.classList.add('text-primary');
+        });
+    });
 }
-
-window.toggleMobileMenu = function(state) {
-    const menu = document.getElementById('mobile-menu');
-
-    if (!menu) return;
-
-    if (state === false) {
-        closeMenu(menu);
-    } else if (state === true) {
-        openMenu(menu);
-    }
-};
-

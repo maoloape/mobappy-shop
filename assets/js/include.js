@@ -1,3 +1,4 @@
+import { initNavbarScrollEffect, setupMobileNavActiveEffect } from './partials/nav.js';
 import { home } from './data/home.js';
 // import { about } from './data/about.js';
 import { products } from './data/product.js';
@@ -121,6 +122,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadComponent('footer', './partials/footer.html');
     await loadComponent('floating', './components/floating.html');
     await loadComponent('login', './components/modals/login.html');
+
+    // Load Navbar Animate on Scroll
+    initNavbarScrollEffect();
+    setupMobileNavActiveEffect();
 
     loadPage('home');
 });
