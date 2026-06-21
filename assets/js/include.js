@@ -1,5 +1,5 @@
 import { initNavbarScrollEffect, setupMobileNavActiveEffect } from './partials/nav.js';
-import { home } from './data/home.js';
+import { home, homeBanners, homeEvents } from './data/home.js';
 // import { about } from './data/about.js';
 import { products, categoryMap, merkMap, categories } from './data/product.js';
 
@@ -26,9 +26,12 @@ function renderData(data, target = 'app', templateId = 'card') {
     if (!element) return;
 
     if (Array.isArray(data)) {
-        const template = element.querySelector(`#${templateId}`);
+        const template = document.getElementById(templateId);
 
-        if (!template) return;
+        if (!template) {
+            console.log(`Template ${templateId} tidak ditemukan`);
+            return;
+        }
 
         const html = template.innerHTML;
 
@@ -84,9 +87,17 @@ async function loadPage(page) {
         }
 
         if (page === 'home') {
-            renderData(home, 'home');
+            // renderData(home, 'home');
+            renderData(homeBanners, 'home-banners', 'banner-card');
+            renderData(homeEvents, 'home-events', 'event-card');
             renderData(categories, 'categories', 'category-card');
             renderData(products.slice(0, 6), 'products');
+
+            setTimeout(() => {
+                if (typeof window.initHomeSlider === 'function') {
+                    window.initHomeSlider();
+                }
+            }, 100);
         }
 
         if (page === 'product') {
