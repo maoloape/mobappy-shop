@@ -69,17 +69,10 @@ function renderData(data, target = 'app', templateId = 'card') {
 
 async function loadPage(page) {
     try {
-
-        const response =
-            await fetch(
-                `./pages/${page}.html`
-            );
-
+        const response = await fetch(`./pages/${page}.html`);
         const html = await response.text();
 
-        const app =
-            document.getElementById('app');
-
+        const app = document.getElementById('app');
         app.innerHTML = html;
 
         if (window.Alpine) {
@@ -102,6 +95,10 @@ async function loadPage(page) {
 
         if (page === 'product') {
             renderData(products, 'products');
+        }
+
+        if (typeof window.updateActiveNavbar === 'function') {
+            window.updateActiveNavbar(page);
         }
 
     } catch (error) {

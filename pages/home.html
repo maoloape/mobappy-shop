@@ -47,7 +47,7 @@
 
         <div class="flex justify-between items-end mb-6">
             <div>
-                <h2 class="text-2xl font-bold text-primary">
+                <h2 class="text-2xl font-bold text-slate-900">
                     Categories
                 </h2>
 
@@ -58,7 +58,7 @@
 
             <button
                 onclick="loadPage('product')"
-                class="text-sm font-semibold text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                class="text-sm font-semibold text-white bg-slate-900 hover:bg-primary px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
                 View All 
             </button>
         </div>
@@ -93,7 +93,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-end mb-6">
             <div>
-                <h2 class="text-2xl font-bold text-primary">
+                <h2 class="text-2xl font-bold text-slate-900">
                     Latest Products
                 </h2>
                 <p class="text-sm text-slate-500">
@@ -104,7 +104,7 @@
 
             <button
                 onclick="loadPage('product')"
-                class="text-sm font-semibold text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                class="text-sm font-semibold text-white bg-slate-900 hover:bg-primary px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
                 View All 
             </button>
         </div>
@@ -147,7 +147,7 @@
                                     </svg>
                                 </button>
 
-                                <button title="Add to Cart" aria-label="Add to Cart" class="w-12 h-12 rounded-full bg-primary hover:bg-primary/80 text-white flex items-center justify-center shadow-md transition duration-200 flex-shrink-0">
+                                <button title="Add to Cart" aria-label="Add to Cart" class="w-12 h-12 rounded-full bg-primary hover:bg-slate-900 text-white flex items-center justify-center shadow-md transition duration-200 flex-shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                                     </svg>
@@ -160,4 +160,215 @@
         </div>
     </div>
     
+</section>
+
+<section class="container mx-auto px-4 py-8 md:py-12" x-data="{ activeTab: 'istilah' }">
+    <div class="bg-white rounded-2xl md:rounded-3xl shadow-sm border border-slate-100 p-4 md:p-8">
+        
+        <div class="flex justify-center border-b border-slate-100 pb-px mb-6 md:mb-8 overflow-x-auto scrollbar-none">
+            <div class="flex gap-2 md:gap-6 min-w-max px-2">
+                <button @click="activeTab = 'istilah'" 
+                    :class="activeTab === 'istilah' ? 'border-primary text-primary font-bold' : 'border-transparent text-slate-500 hover:text-slate-800 font-medium'"
+                    class="pb-3 px-2 border-b-2 text-sm md:text-base transition-all duration-200 focus:outline-hidden cursor-pointer flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.063.852l-.708 2.836a.75.75 0 001.063.852l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+                    Istilah Produk
+                </button>
+                <button @click="activeTab = 'pengiriman'" 
+                    :class="activeTab === 'pengiriman' ? 'border-primary text-primary font-bold' : 'border-transparent text-slate-500 hover:text-slate-800 font-medium'"
+                    class="pb-3 px-2 border-b-2 text-sm md:text-base transition-all duration-200 focus:outline-hidden cursor-pointer flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125a1.125 1.125 0 0 0 1.125-1.125V9.75M16.5 18.75a1.5 1.5 0 0 0-3 0m3 0H12m3 0a2.25 2.25 0 0 0-2.25-2.25h-1.5a2.25 2.25 0 0 0-2.25 2.25M21.75 12h-3.75V9.75m4.5 1.5a2.25 2.25 0 0 0-2.25-2.25h-3.75V4.5A2.25 2.25 0 0 0 14.25 2.25h-4.5A2.25 2.25 0 0 0 7.5 4.5v10.5m14.25 3.375A2.25 2.25 0 0 1 19.5 21H4.5A2.25 2.25 0 0 1 2.25 18.75V14.25m19.5 4.5V14.25m-19.5 0h19.5"/></svg>
+                    Metode Pengiriman
+                </button>
+                <button @click="activeTab = 'pembayaran'" 
+                    :class="activeTab === 'pembayaran' ? 'border-primary text-primary font-bold' : 'border-transparent text-slate-500 hover:text-slate-800 font-medium'"
+                    class="pb-3 px-2 border-b-2 text-sm md:text-base transition-all duration-200 focus:outline-hidden cursor-pointer flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5z"/></svg>
+                    Metode Pembayaran
+                </button>
+            </div>
+        </div>
+
+        <div class="w-full">
+
+            <div x-show="activeTab === 'istilah'" x-transition:enter="transition ease-out duration-200" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded-sm w-max mb-1">Kondisi Baru</span>
+                    <h4 class="text-base font-bold text-slate-800">BNIB (Brand New in Box)</h4>
+                    <p class="text-xs md:text-sm text-slate-500">100% Baru, gres, dan masih tersegel rapi di dalam kotak asli pabrikan.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded-sm w-max mb-1">Kondisi Baru</span>
+                    <h4 class="text-base font-bold text-slate-800">BNOB (Brand New Open Box)</h4>
+                    <p class="text-xs md:text-sm text-slate-500">100% Baru, unit belum terpakai, kondisi boks luar saja yang pernah dibuka.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-sky-100 text-sky-800 rounded-sm w-max mb-1">Kondisi Baru</span>
+                    <h4 class="text-base font-bold text-slate-800">BNWB (Brand New Without Box)</h4>
+                    <p class="text-xs md:text-sm text-slate-500">100% Baru dan original, namun dijual lepas tanpa kelengkapan kotak bawaan.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded-sm w-max mb-1">Kondisi Liknew</span>
+                    <h4 class="text-base font-bold text-slate-800">Rank S+</h4>
+                    <p class="text-xs md:text-sm text-slate-500">Kondisi fisik super istimewa, sangat mulus total mirip barang baru.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-purple-100 text-purple-800 rounded-sm w-max mb-1">Kondisi Second</span>
+                    <h4 class="text-base font-bold text-slate-800">Rank S</h4>
+                    <p class="text-xs md:text-sm text-slate-500">Mulus normal, tanda pemakaian minim, fungsi hardware normal 100%.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                    <span class="inline-block px-2 py-0.5 text-[10px] font-bold bg-slate-200 text-slate-700 rounded-sm w-max mb-1">Kondisi Second</span>
+                    <h4 class="text-base font-bold text-slate-800">Rank A</h4>
+                    <p class="text-xs md:text-sm text-slate-500">Terdapat goresan halus tanda pemakaian wajar, performa mesin dijamin normal.</p>
+                </div>
+
+            </div>
+
+            <div x-show="activeTab === 'pengiriman'" x-transition:enter="transition ease-out duration-200" class="space-y-6">
+                
+                <div class="p-4 bg-orange-50/50 border border-orange-100 text-slate-700 text-xs md:text-sm rounded-xl">
+                    💡 Pesanan Anda dikirim eksklusif melalui layanan terpercaya <strong>Japan Post</strong>. Hebatnya, Anda bebas menentukan sendiri jadwal tanggal beserta jam kedatangan paket.
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+                    <div class="lg:col-span-3 space-y-4">
+                        <div class="border-l-4 border-primary pl-3">
+                            <h4 class="text-base font-bold text-slate-800">🚀 Pengiriman Cepat & Aman</h4>
+                            <p class="text-xs md:text-sm text-slate-500 mt-0.5">Durasi pengantaran ke seluruh wilayah Jepang kilat hanya <strong>1-3 hari kerja</strong>. Lacak status resi real-time lewat link: <a href="https://trackings.post.japanpost.jp/services/srv/search/input" target="_blank" class="text-primary font-bold hover:underline">Situs Cek Japan Post ↗</a>.</p>
+                        </div>
+
+                        <div class="border-l-4 border-slate-400 pl-3">
+                            <h4 class="text-base font-bold text-slate-800">📦 Pengiriman Hemat (Gratis Ongkir)</h4>
+                            <p class="text-xs md:text-sm text-slate-500 mt-0.5">Dapatkan voucher <strong>GRATIS ONGKIR</strong> otomatis untuk transaksi via Transfer Bank (kecuali item Aksesoris, Earphone, SIM, dan Pocket Wifi).</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-500 pl-3">
+                            <h4 class="text-base font-bold text-slate-800">🤝 Layanan Daibiki (Bayar di Tempat / COD)</h4>
+                            <p class="text-xs md:text-sm text-slate-500 mt-0.5">Belanja tenang pakai opsi Cash on Delivery. Cukup serahkan uang tunai pada kurir saat paket sampai. *(Dikenakan biaya penanganan tambahan sebesar <strong>1.500¥</strong> untuk semua pesanan).*</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-slate-100">
+                        <img src="https://placehold.co/600x340/f3f4f6/a1a1aa?text=Image+Metode+Pengiriman" alt="Metode Pengiriman Mobappy" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+
+            <div x-show="activeTab === 'pembayaran'" x-transition:enter="transition ease-out duration-200" class="space-y-6">
+                
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-slate-800 flex items-center gap-1.5">
+                        <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xs font-bold">1</span>
+                        Transfer Bank Online
+                    </h4>
+                    <p class="text-xs md:text-sm text-slate-500 pl-6">Mobappy melayani transfer rekening bank lokal resmi Jepang yang aman melalui daftar mitra berikut ini:</p>
+                    
+                    <div class="grid grid-cols-3 gap-3 pl-6 max-w-2xl">
+                        <div class="aspect-square bg-slate-50 border border-slate-100 rounded-xl overflow-hidden p-2 flex items-center justify-center group hover:border-primary/40 transition">
+                            <img src="https://placehold.co/150x150/ffffff/ea580c?text=Paypay+Bank" alt="Paypay Bank" class="w-full h-full object-contain rounded-lg">
+                        </div>
+                        <div class="aspect-square bg-slate-50 border border-slate-100 rounded-xl overflow-hidden p-2 flex items-center justify-center group hover:border-primary/40 transition">
+                            <img src="https://placehold.co/150x150/ffffff/ea580c?text=SMBC+Bank" alt="SMBC Bank" class="w-full h-full object-contain rounded-lg">
+                        </div>
+                        <div class="aspect-square bg-slate-50 border border-slate-100 rounded-xl overflow-hidden p-2 flex items-center justify-center group hover:border-primary/40 transition">
+                            <img src="https://placehold.co/150x150/ffffff/ea580c?text=Nagoya+Bank" alt="Nagoya Bank" class="w-full h-full object-contain rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-100 my-2">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                        <h4 class="text-base font-bold text-slate-800 flex items-center gap-1.5">
+                            <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold">2</span>
+                            Cash on Delivery (代引き)
+                        </h4>
+                        <p class="text-xs md:text-sm text-slate-500 pl-6">Metode pembayaran tunai instan di depan pintu rumah Anda saat paket diantarkan oleh kurir pos.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                        <h4 class="text-base font-bold text-slate-800 flex items-center gap-1.5">
+                            <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold">3</span>
+                            Transaksi Langsung di Toko
+                        </h4>
+                        <p class="text-xs md:text-sm text-slate-500 pl-6">Kunjungi kantor / *offline store* resmi kami untuk melakukan pembayaran tunai (Cash Yen) maupun gesek Kartu Kredit.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="container mx-auto px-4 pb-12 md:pb-16">
+    <div class="bg-white rounded-2xl md:rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <div class="p-6 md:p-10 lg:col-span-5 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-primary tracking-wider uppercase">Hubungi Kami</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-800">Mobappy Store & Office</h3>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-500 leading-relaxed">
+                        Silakan kunjungi showroom kami untuk melihat unit produk secara langsung, melakukan klaim garansi, atau melakukan transaksi pembayaran tunai di tempat.
+                    </p>
+                    
+                    <hr class="border-slate-100">
+
+                    <div class="space-y-3.5">
+                        <div class="flex items-start gap-3 text-slate-700">
+                            <span class="p-2 rounded-lg bg-orange-50 text-primary mt-0.5 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                            </span>
+                            <div class="text-xs md:text-sm">
+                                <p class="font-bold text-slate-800">Alamat Kantor Pusat</p>
+                                <p class="text-slate-500 mt-0.5">〒460-0008 Nagoya-shi, Naka-ku, Sakae 3-chome, 12-34 Mobappy Bldg 4F, Japan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 text-slate-700">
+                            <span class="p-2 rounded-lg bg-orange-50 text-primary mt-0.5 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                            </span>
+                            <div class="text-xs md:text-sm">
+                                <p class="font-bold text-slate-800">Jam Operasional Toko</p>
+                                <p class="text-slate-500 mt-0.5">Senin - Sabtu: 09:00 - 18:00 <br><span class="text-red-500 font-medium">(Minggu & Hari Libur Nasional Tutup)</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 text-slate-700">
+                            <span class="p-2 rounded-lg bg-orange-50 text-primary mt-0.5 shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25V16.5a2.25 2.25 0 0 0-2.25-2.25h-1.35c-.35 0-.74.07-.1.31l-1.48 1.48c-.007.007-.013.014-.02.022a11.088 11.088 0 0 1-7.04-7.04c.008-.007.014-.013.022-.02l1.48-1.48c.24-.24.304-.53.31-.1V3.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v2.25Z"/></svg>
+                            </span>
+                            <div class="text-xs md:text-sm">
+                                <p class="font-bold text-slate-800">Kontak Resmi</p>
+                                <p class="text-slate-500 mt-0.5">Telp: +81 52-123-4567<br>Email: support@mobappy.co.jp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com" target="_blank" class="w-full py-3 bg-slate-900 text-white rounded-xl font-medium text-xs md:text-sm text-center block hover:bg-primary transition duration-300">
+                    Petunjuk Arah Lewat Google Maps ↗
+                </a>
+            </div>
+
+            <div class="lg:col-span-7 h-64 sm:h-80 md:h-[450px] lg:h-full w-full bg-slate-100">
+                <iframe 
+                    class="w-full h-full border-0"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.642838321016!2d136.9038243!3d35.1655612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600370b30a514d29%3A0x280d94f2bb7bb831!2sSakae%2C%20Naka%20Ward%2C%20Nagoya%2C%20Aichi!5e0!3m2!1sid!2sjp!4v1710000000000!5m2!1sid!2sjp" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
 </section>

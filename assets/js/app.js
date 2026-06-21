@@ -3,6 +3,33 @@ import './include.js';
 
 console.log('Mobappy Shop Loaded');
 
+// Navigation Action
+window.updateActiveNavbar = function(pageName) {
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const targetPage = link.getAttribute('data-page');
+
+        if (targetPage === pageName) {            
+            if (link.classList.contains('py-3')) {
+                link.classList.remove('text-slate-600', 'border-transparent');
+                link.classList.add('text-primary', 'border-primary');
+            } else {
+                link.classList.remove('text-slate-500');
+                link.classList.add('text-primary');
+            }
+        } else {
+            if (link.classList.contains('py-3')) {
+                link.classList.remove('text-primary', 'border-primary');
+                link.classList.add('text-slate-600', 'border-transparent');
+            } else {
+                link.classList.remove('text-primary');
+                link.classList.add('text-slate-500');
+            }
+        }
+    });
+};
+
 // Home Slider Initialization
 window.initHomeSlider = function() {
     const sliderContainer = document.getElementById('home-banners');
@@ -66,7 +93,6 @@ window.initHomeSlider = function() {
         };
     }
 
-    // 📱 DETEKSI SWIPE JARI DI MOBILE
     let touchStartX = 0;
     let touchEndX = 0;
 
