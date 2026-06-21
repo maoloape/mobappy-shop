@@ -1,0 +1,89 @@
+<div 
+    x-show="showLoginModal" 
+    class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none"
+    style="display: none;"
+>
+    <div 
+        x-show="showLoginModal"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click="showLoginModal = false"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm"
+    ></div>
+
+    <div 
+        x-show="showLoginModal"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+        x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+        x-transition:leave-end="opacity-0 scale-95 translate-y-4"
+        class="relative w-full max-w-md mx-4 bg-white rounded-3xl shadow-2xl overflow-hidden z-10 p-8 border border-slate-100"
+    >
+        <button @click="showLoginModal = false" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="text-center mb-8 mt-2">
+            <h3 class="text-2xl font-bold text-slate-800 tracking-tight">
+                Log in with your Mobappy account
+            </h3>
+            <p class="text-sm text-slate-400 mt-1">Please enter your account details to continue.</p>
+        </div>
+
+        <form class="space-y-5">
+            <div class="space-y-1.5">
+                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Account or Email</label>
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        placeholder="example@mail.com" 
+                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                    >
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <div class="flex justify-between items-center">
+                    <label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Password</label>
+                    <a href="#" class="text-xs font-medium text-slate-400 hover:text-primary transition">Forgot your Password?</a>
+                </div>
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        placeholder="••••••••" 
+                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                    >
+                </div>
+            </div>
+
+            <div class="flex items-center">
+                <label class="inline-flex items-center cursor-pointer group">
+                    <input type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary/30 w-4 h-4 transition duration-150 ease-in-out">
+                    <span class="ml-2.5 text-sm text-slate-500 font-medium group-hover:text-slate-700 transition">Remember Me</span>
+                </label>
+            </div>
+
+            <div class="pt-2">
+                <button 
+                    type="submit" 
+                    class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-200 transform active:scale-[0.98]"
+                >
+                    LOGIN
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-8 text-sm text-slate-500 font-medium">
+            Don't have Mobappy account? 
+            <a href="#" class="text-primary hover:underline font-bold ml-1">Register now</a>
+        </div>
+    </div>
+</div>
