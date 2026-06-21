@@ -106,7 +106,7 @@ async function loadPage(page) {
         }
 
         if (page === 'product') {
-            renderData(products, 'list');
+            renderData(products, 'products');
         }
 
     } catch (error) {
