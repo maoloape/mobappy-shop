@@ -101,6 +101,8 @@ async function loadPage(page) {
         }
 
         if (page === 'home') {
+            console.log('HOME PAGE LOADED');
+            console.log(products);
             renderData(home, 'home');
             renderData(products.slice(0, 4), 'products');
         }
